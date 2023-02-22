@@ -4,10 +4,9 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 
-const New = ({ inputs, title }) => {
+const New = ({ inputs, title, btn }) => {
   const [file, setFile] = useState();
 
-  console.log(file);
 
   return (
     <div className="new">
@@ -23,12 +22,13 @@ const New = ({ inputs, title }) => {
               <label htmlFor="file">
                 {console.log(file)}
               <img
-              src={file ? URL.createObjectURL(file) : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg"}
+              src={file ? URL.createObjectURL(file) : "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"}
               alt=""
             />
               </label>
-              <input type="file" id="file" style={{display:"none"}} onChange={(e)=>{setFile(e.target.files[0])}} />
+              <input type="file" id="file" style={{display:"none", cursor:"pointer"}} onChange={(e)=>{setFile(e.target.files[0])}} />
             </div>
+            <p>Choose Image to Upload</p>
           </div>
           <div className="right">
             <form>
@@ -38,7 +38,7 @@ const New = ({ inputs, title }) => {
                   <input type={input.type} placeholder={input.placeholder } />
                 </div>
               ))}
-              <button>Send</button>
+              <button>{btn}</button>
             </form>
           </div>
         </div>

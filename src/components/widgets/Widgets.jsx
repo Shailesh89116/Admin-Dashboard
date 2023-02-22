@@ -33,7 +33,7 @@ const Widgets = ({type}) => {
                 icon:<ShoppingCartOutlined className='icon'  style={{
                     backgroundColor: "rgba(218,165,32,0.2)", color:"goldenrod"
                 }}/>,
-                page:"users"
+                page:"orders"
             };
             break;
             case "earnings":
@@ -44,7 +44,7 @@ const Widgets = ({type}) => {
                 icon:<MonetizationOnOutlined className='icon'  style={{
                     backgroundColor: "rgba(0,128,0,0.2)", color:"green"
                 }}/>,
-                page:"users"
+                page:"earnings"
             };
             break;
             case "balance":
@@ -55,7 +55,7 @@ const Widgets = ({type}) => {
                 icon:<AccountBalanceWalletRounded className='icon'  style={{
                     backgroundColor: "rgba(128,0,128,0.2)", color:"purple"
                 }}/>,
-                page:"users"
+                page:"balance"
             };
             break;
         default:

@@ -10,6 +10,7 @@ import New from "./pages/new/New";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss"
 import { DarkModeContext } from "./context/darkModeContext";
+import ProductList from "./pages/productList/ProductList";
 function App() {
 
 
@@ -25,12 +26,12 @@ function App() {
             <Route path="users">
               <Route index element={<List />} />
               <Route path=":userId" element={<Single />} />
-              <Route path="new" element={<New inputs={userInputs} title="Add New User"/>} />
+              <Route path="new" element={<New inputs={userInputs} title="Add New User" btn = "Add User"/>} />
             </Route>
             <Route path="products">
-              <Route index element={<List />} />
+              <Route index element={<ProductList />} />
               <Route path=":productId" element={<Single />} />
-              <Route path="new" element={<New inputs={productInputs} title="Add New Product"/>} />
+              <Route path="new" element={<New inputs={productInputs} title="Add New Product" btn="Add Product"/>} />
             </Route>
           </Route>
         </Routes>
