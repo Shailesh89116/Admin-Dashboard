@@ -1,10 +1,21 @@
 import { DataGrid } from '@mui/x-data-grid'
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { productColumns, productRows } from '../../productData'
-import "./productTable.scss"
+import { Link, useNavigate } from 'react-router-dom'
+import { orderColumns, orderRows } from '../../OrderData';
+import "./orderTable.scss"
 
-const ProductTable = () => {
+const OrderTable = () => {
+
+
+
+    const navigate=useNavigate();
+
+    
+    const handleView=()=>{
+        console.log(orderRows.orderId)
+        navigate(`/orders/${orderRows.orderId}`)
+    }
+
     const actionColumn=[{
         field: "action",
         headerName: "Action",
@@ -12,9 +23,9 @@ const ProductTable = () => {
         renderCell:()=>{
             return(
                 <div className="cellAction">
-                  <Link to="/users/test" style={{textDecoration:"none"}}>
-                    <div className="viewButton">View</div>
-                    </Link>
+                  
+                    <div className="viewButton" onClick={handleView}>View</div>
+                   
                     <div className="deleteButton">Delete</div>
                 </div>
             )
@@ -23,13 +34,11 @@ const ProductTable = () => {
 return (
 <div className="datatable">
   <div className="datatableTitle">
-    <Link to="/products/new" className="newProduct">
-    Add New Product
-    </Link>
+    
   </div>
  <DataGrid className='datagrid '
-    rows={productRows}
-    columns={productColumns.concat(actionColumn)}
+    rows={orderRows}
+    columns={orderColumns.concat(actionColumn)}
     pageSize={10}
     rowsPerPageOptions={[10]}
     checkboxSelection
@@ -38,4 +47,4 @@ return (
 )
 }
 
-export default ProductTable
+export default OrderTable

@@ -11,6 +11,8 @@ import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss"
 import { DarkModeContext } from "./context/darkModeContext";
 import ProductList from "./pages/productList/ProductList";
+import OrderList from "./pages/orderList/OrderList";
+import SingleOrder from "./pages/singleOrder/SingleOrder";
 function App() {
 
 
@@ -32,6 +34,10 @@ function App() {
               <Route index element={<ProductList />} />
               <Route path=":productId" element={<Single />} />
               <Route path="new" element={<New inputs={productInputs} title="Add New Product" btn="Add Product"/>} />
+            </Route>
+            <Route path="orders">
+              <Route index element={<OrderList />} />
+              <Route path=":orderId" element={<SingleOrder />} />
             </Route>
           </Route>
         </Routes>
